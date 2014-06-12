@@ -1,4 +1,6 @@
 Eggbasket::Application.routes.draw do
+  resources :users
+
   resources :egg_baskets
 
   resources :egg_clutches
