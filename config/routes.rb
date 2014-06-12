@@ -1,4 +1,6 @@
 Eggbasket::Application.routes.draw do
+  resources :egg_clutches
+
   resources :events
 
   resources :event_names

@@ -1,0 +1,29 @@
+<h1>Listing egg_clutches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Count</th>
+      <th>Egg basket</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @egg_clutches.each do |egg_clutch| %>
+      <tr>
+        <td><%= egg_clutch.count %></td>
+        <td><%= egg_clutch.egg_basket %></td>
+        <td><%= link_to 'Show', egg_clutch %></td>
+        <td><%= link_to 'Edit', edit_egg_clutch_path(egg_clutch) %></td>
+        <td><%= link_to 'Destroy', egg_clutch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Egg clutch', new_egg_clutch_path %>

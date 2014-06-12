@@ -1,0 +1,25 @@
+<%= form_for(@egg_clutch) do |f| %>
+  <% if @egg_clutch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@egg_clutch.errors.count, "error") %> prohibited this egg_clutch from being saved:</h2>
+
+      <ul>
+      <% @egg_clutch.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :count %><br>
+    <%= f.text_field :count %>
+  </div>
+  <div class="field">
+    <%= f.label :egg_basket_id %><br>
+    <%= f.text_field :egg_basket_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

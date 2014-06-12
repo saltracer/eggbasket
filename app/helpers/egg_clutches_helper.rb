@@ -1,0 +1,2 @@
+module EggClutchesHelper
+end

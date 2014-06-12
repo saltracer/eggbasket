@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @egg_clutch.count %>
+</p>
+
+<p>
+  <strong>Egg basket:</strong>
+  <%= @egg_clutch.egg_basket %>
+</p>
+
+<%= link_to 'Edit', edit_egg_clutch_path(@egg_clutch) %> |
+<%= link_to 'Back', egg_clutches_path %>
