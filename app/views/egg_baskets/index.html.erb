@@ -1,29 +1,36 @@
-<h1>Listing egg_baskets</h1>
-
-<table>
+<%- model_class = EggBasket -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => EggBasket %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Egg count</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:egg_count) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @egg_baskets.each do |egg_basket| %>
       <tr>
+        <td><%= egg_basket.id %></td>
         <td><%= egg_basket.egg_count %></td>
-        <td><%= egg_basket.user %></td>
-        <td><%= link_to 'Show', egg_basket %></td>
-        <td><%= link_to 'Edit', edit_egg_basket_path(egg_basket) %></td>
-        <td><%= link_to 'Destroy', egg_basket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l egg_basket.created_at, format: :long %></td>
+        <td>
+          <%= link_to egg_basket_path(egg_basket), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to egg_basket_path(egg_basket), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Egg basket', new_egg_basket_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_egg_basket_path,
+            :class => 'btn btn-primary' %>

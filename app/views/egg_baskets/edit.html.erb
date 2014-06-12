@@ -1,6 +1,5 @@
-<h1>Editing egg_basket</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @egg_basket %> |
-<%= link_to 'Back', egg_baskets_path %>
+<%- model_class = EggBasket -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => EggBasket %></h1>
+</div>
+<%= render :partial => 'form' %>
