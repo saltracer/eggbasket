@@ -1,25 +1,16 @@
-<%= form_for(@egg_clutch) do |f| %>
-  <% if @egg_clutch.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@egg_clutch.errors.count, "error") %> prohibited this egg_clutch from being saved:</h2>
-
-      <ul>
-      <% @egg_clutch.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @egg_clutch, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :count, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :count, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
 
-  <div class="field">
-    <%= f.label :count %><br>
-    <%= f.text_field :count %>
-  </div>
-  <div class="field">
-    <%= f.label :egg_basket_id %><br>
-    <%= f.text_field :egg_basket_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  egg_clutches_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
