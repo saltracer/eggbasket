@@ -43,3 +43,25 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'bundler'
+
+group :development do
+  gem 'better_errors'
+  gem 'pry-rails'
+end
+
+gem 'binding_of_caller'
+gem 'delayed_job', github: 'collectiveidea/delayed_job'
+gem 'delayed_job_active_record', github: 'collectiveidea/delayed_job_active_record'
+gem 'validates_formatting_of'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'shoulda-matchers'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+end
