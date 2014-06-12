@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Occurred on:</strong>
+  <%= @event.occurred_on %>
+</p>
+
+<p>
+  <strong>Egg basket:</strong>
+  <%= @event.egg_basket %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @event.cost %>
+</p>
+
+<p>
+  <strong>Event name:</strong>
+  <%= @event.event_name %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
