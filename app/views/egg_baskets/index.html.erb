@@ -1,0 +1,29 @@
+<h1>Listing egg_baskets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Egg count</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @egg_baskets.each do |egg_basket| %>
+      <tr>
+        <td><%= egg_basket.egg_count %></td>
+        <td><%= egg_basket.user %></td>
+        <td><%= link_to 'Show', egg_basket %></td>
+        <td><%= link_to 'Edit', edit_egg_basket_path(egg_basket) %></td>
+        <td><%= link_to 'Destroy', egg_basket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Egg basket', new_egg_basket_path %>

@@ -1,0 +1,2 @@
+module EggBasketsHelper
+end
