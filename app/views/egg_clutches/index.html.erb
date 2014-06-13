@@ -7,7 +7,7 @@
     <tr>
       <th>ID</th>
       <th><%= model_class.human_attribute_name(:count) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:collected_on) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -16,7 +16,7 @@
       <tr>
         <td><%= egg_clutch.id %></td>
         <td><%= egg_clutch.count %></td>
-        <td><%=l egg_clutch.created_at, format: :long %></td>
+        <td><%=l egg_clutch.collected_on, format: :long %></td>
         <td>
           <%= link_to egg_clutch_path(egg_clutch), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
             <%#= glyph 'info-sign' %>

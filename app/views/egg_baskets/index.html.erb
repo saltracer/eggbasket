@@ -7,7 +7,7 @@
     <tr>
       <th>ID</th>
       <th><%= model_class.human_attribute_name(:egg_count) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:collected_on) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -16,7 +16,7 @@
       <tr>
         <td><%= egg_basket.id %></td>
         <td><%= egg_basket.egg_count %></td>
-        <td><%=l egg_basket.created_at, format: :long %></td>
+        <td><%=l egg_basket.collected_on, format: :long %></td>
         <td>
           <%= link_to egg_basket_path(egg_basket), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
             <%#= glyph 'info-sign' %>

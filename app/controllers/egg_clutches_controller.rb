@@ -69,6 +69,6 @@ class EggClutchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def egg_clutch_params
-      params.require(:egg_clutch).permit(:count, :egg_basket_id)
+      params.require(:egg_clutch).permit(:count, :collected_on, :egg_basket_id)
     end
 end

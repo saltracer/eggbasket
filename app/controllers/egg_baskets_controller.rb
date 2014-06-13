@@ -74,6 +74,6 @@ class EggBasketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def egg_basket_params
-      params.require(:egg_basket).permit(:egg_count, :user_id)
+      params.require(:egg_basket).permit(:egg_count, :collected_on, :user_id)
     end
 end
