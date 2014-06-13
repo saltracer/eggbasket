@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612184355) do
+ActiveRecord::Schema.define(version: 20140613221808) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -27,25 +30,27 @@ ActiveRecord::Schema.define(version: 20140612184355) do
     t.datetime "updated_at"
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "egg_baskets", force: true do |t|
     t.decimal  "egg_count"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "collected_on"
   end
 
-  add_index "egg_baskets", ["user_id"], name: "index_egg_baskets_on_user_id"
+  add_index "egg_baskets", ["user_id"], name: "index_egg_baskets_on_user_id", using: :btree
 
   create_table "egg_clutches", force: true do |t|
     t.decimal  "count"
     t.integer  "egg_basket_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "collected_on"
   end
 
-  add_index "egg_clutches", ["egg_basket_id"], name: "index_egg_clutches_on_egg_basket_id"
+  add_index "egg_clutches", ["egg_basket_id"], name: "index_egg_clutches_on_egg_basket_id", using: :btree
 
   create_table "event_names", force: true do |t|
     t.string   "name"
@@ -62,8 +67,8 @@ ActiveRecord::Schema.define(version: 20140612184355) do
     t.datetime "updated_at"
   end
 
-  add_index "events", ["egg_basket_id"], name: "index_events_on_egg_basket_id"
-  add_index "events", ["event_name_id"], name: "index_events_on_event_name_id"
+  add_index "events", ["egg_basket_id"], name: "index_events_on_egg_basket_id", using: :btree
+  add_index "events", ["event_name_id"], name: "index_events_on_event_name_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "login"
