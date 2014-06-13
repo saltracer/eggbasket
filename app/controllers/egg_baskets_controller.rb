@@ -29,7 +29,7 @@ class EggBasketsController < ApplicationController
   # POST /egg_baskets.json
   def create
     @egg_basket = EggBasket.new(egg_basket_params)
-    @egg_basket.user = current_user
+    #@egg_basket.user = current_user
 
     respond_to do |format|
       if @egg_basket.save
