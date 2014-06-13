@@ -38,7 +38,7 @@ end
 gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-gem 'thin'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
@@ -67,4 +67,9 @@ group :test do
   gem 'shoulda-matchers'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+end
+
+group :staging, :production do
+  gem 'newrelic_rpm', '>= 3.5.7'
+  gem 'rails_12factor'
 end
