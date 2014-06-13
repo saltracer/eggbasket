@@ -19,11 +19,12 @@
         <td><%=l egg_clutch.created_at, format: :long %></td>
         <td>
           <%= link_to egg_clutch_path(egg_clutch), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
-            <%= glyph 'info-sign' %>
-            <%= glyph 'pencil' %>
+            <%#= glyph 'info-sign' %>
+            <%#= glyph 'pencil' %>
           <%- end -%>
           <%= link_to egg_clutch_path(egg_clutch), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
-            <%= glyph 'remove' %>
+            <%#= glyph 'remove' %>
+            <%#= glyph 'remove' %>
           <%- end -%>
         </td>
       </tr>
