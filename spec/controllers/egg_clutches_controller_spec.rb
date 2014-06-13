@@ -38,7 +38,7 @@ RSpec.describe EggClutchesController, :type => :controller do
 
   describe "GET index" do
     it "assigns all egg_clutches as @egg_clutches" do
-      egg_clutch = EggClutch.create! valid_attributes
+      egg_clutch = FactoryGirl.create(:egg_clutch)
       get :index, {}, valid_session
       expect(assigns(:egg_clutches)).to eq([egg_clutch])
     end
@@ -46,7 +46,7 @@ RSpec.describe EggClutchesController, :type => :controller do
 
   describe "GET show" do
     it "assigns the requested egg_clutch as @egg_clutch" do
-      egg_clutch = EggClutch.create! valid_attributes
+      egg_clutch = FactoryGirl.create(:egg_clutch)
       get :show, {:id => egg_clutch.to_param}, valid_session
       expect(assigns(:egg_clutch)).to eq(egg_clutch)
     end
@@ -61,7 +61,7 @@ RSpec.describe EggClutchesController, :type => :controller do
 
   describe "GET edit" do
     it "assigns the requested egg_clutch as @egg_clutch" do
-      egg_clutch = EggClutch.create! valid_attributes
+      egg_clutch = FactoryGirl.create(:egg_clutch)
       get :edit, {:id => egg_clutch.to_param}, valid_session
       expect(assigns(:egg_clutch)).to eq(egg_clutch)
     end

@@ -38,7 +38,7 @@ RSpec.describe EventNamesController, :type => :controller do
 
   describe "GET index" do
     it "assigns all event_names as @event_names" do
-      event_name = EventName.create! valid_attributes
+      event_name = FactoryGirl.create(:event_name)
       get :index, {}, valid_session
       expect(assigns(:event_names)).to eq([event_name])
     end
@@ -46,7 +46,7 @@ RSpec.describe EventNamesController, :type => :controller do
 
   describe "GET show" do
     it "assigns the requested event_name as @event_name" do
-      event_name = EventName.create! valid_attributes
+      event_name = FactoryGirl.create(:event_name)
       get :show, {:id => event_name.to_param}, valid_session
       expect(assigns(:event_name)).to eq(event_name)
     end
@@ -61,7 +61,7 @@ RSpec.describe EventNamesController, :type => :controller do
 
   describe "GET edit" do
     it "assigns the requested event_name as @event_name" do
-      event_name = EventName.create! valid_attributes
+      event_name = FactoryGirl.create(:event_name)
       get :edit, {:id => event_name.to_param}, valid_session
       expect(assigns(:event_name)).to eq(event_name)
     end

@@ -38,7 +38,7 @@ RSpec.describe UsersController, :type => :controller do
 
   describe "GET index" do
     it "assigns all users as @users" do
-      user = User.create! valid_attributes
+      user = FactoryGirl.create(:user)
       get :index, {}, valid_session
       expect(assigns(:users)).to eq([user])
     end
@@ -46,7 +46,7 @@ RSpec.describe UsersController, :type => :controller do
 
   describe "GET show" do
     it "assigns the requested user as @user" do
-      user = User.create! valid_attributes
+      user = FactoryGirl.create(:user)
       get :show, {:id => user.to_param}, valid_session
       expect(assigns(:user)).to eq(user)
     end
@@ -61,7 +61,7 @@ RSpec.describe UsersController, :type => :controller do
 
   describe "GET edit" do
     it "assigns the requested user as @user" do
-      user = User.create! valid_attributes
+      user = FactoryGirl.create(:user)
       get :edit, {:id => user.to_param}, valid_session
       expect(assigns(:user)).to eq(user)
     end

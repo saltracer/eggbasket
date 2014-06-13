@@ -38,7 +38,7 @@ RSpec.describe EventsController, :type => :controller do
 
   describe "GET index" do
     it "assigns all events as @events" do
-      event = Event.create! valid_attributes
+      event = FactoryGirl.create(:event)
       get :index, {}, valid_session
       expect(assigns(:events)).to eq([event])
     end
@@ -46,7 +46,7 @@ RSpec.describe EventsController, :type => :controller do
 
   describe "GET show" do
     it "assigns the requested event as @event" do
-      event = Event.create! valid_attributes
+      event = FactoryGirl.create(:event)
       get :show, {:id => event.to_param}, valid_session
       expect(assigns(:event)).to eq(event)
     end
@@ -61,7 +61,7 @@ RSpec.describe EventsController, :type => :controller do
 
   describe "GET edit" do
     it "assigns the requested event as @event" do
-      event = Event.create! valid_attributes
+      event = FactoryGirl.create(:event)
       get :edit, {:id => event.to_param}, valid_session
       expect(assigns(:event)).to eq(event)
     end

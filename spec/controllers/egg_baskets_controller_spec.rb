@@ -38,15 +38,16 @@ RSpec.describe EggBasketsController, :type => :controller do
 
   describe "GET index" do
     it "assigns all egg_baskets as @egg_baskets" do
-      egg_basket = EggBasket.create! valid_attributes
+      egg_basket1 = FactoryGirl.create(:egg_basket)
+      egg_basket2 = FactoryGirl.create(:egg_basket)
       get :index, {}, valid_session
-      expect(assigns(:egg_baskets)).to eq([egg_basket])
+      expect(assigns(:egg_baskets)).to eq([egg_basket1, egg_basket2])
     end
   end
 
   describe "GET show" do
     it "assigns the requested egg_basket as @egg_basket" do
-      egg_basket = EggBasket.create! valid_attributes
+      egg_basket = FactoryGirl.create(:egg_basket)
       get :show, {:id => egg_basket.to_param}, valid_session
       expect(assigns(:egg_basket)).to eq(egg_basket)
     end
@@ -61,7 +62,7 @@ RSpec.describe EggBasketsController, :type => :controller do
 
   describe "GET edit" do
     it "assigns the requested egg_basket as @egg_basket" do
-      egg_basket = EggBasket.create! valid_attributes
+      egg_basket = FactoryGirl.create(:egg_basket)
       get :edit, {:id => egg_basket.to_param}, valid_session
       expect(assigns(:egg_basket)).to eq(egg_basket)
     end
